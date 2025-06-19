@@ -2,6 +2,14 @@
 
 {% block content %}
 
+<div class="navigatie-links">
+  {% if from == "families" %}
+    <a href="/families">← Terug naar families</a>
+  {% else %}
+    <a href="/gedenk-posters">← Terug naar gedenkmuur</a>
+  {% endif %}
+</div>
+
 
 <section class="section1">
 
@@ -47,11 +55,9 @@
             {% for tekst in item.verhalen %}
             <div class="img">
 
-                {% comment %} <p style="color:white;">{{ item | json }}</p> {% endcomment %}
 
 
                 
-                {% comment %} <img src="/images/jacob.png" alt="foto van Jacob Philips"> {% endcomment %}
                 <div class="imgContent" tabindex="0">
                     {% if tekst.afbeelding %}
                         <img src="{{ tekst.afbeelding }}" alt="{{ tekst.titel }}" class="verhaalImage">

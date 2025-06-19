@@ -1,0 +1,27 @@
+{% layout "server/layouts/base.liquid" %}
+
+{% block content %}
+
+
+<section class="container">
+  <h2 class="center">Families</h2>
+  <p class="center">Klik op een familie om hun verhalen te bekijken.</p>
+
+  <input type="text" id="zoekInput" placeholder="Zoek een familie..." class="zoekveld">
+  <section class="familie-scroll">
+
+    <div class="familie-lijst" id="familieLijst">
+      {% for familie in families %}
+        <a href="/verhalen/{{ familie.id }}?from=families" class="familie-kaart">
+        <div class="familie-illustratie">
+            <img src="/images/gedenkmuur/ilustratie-gezinnen.png" alt="">
+          </div>
+          <h4>Fam. {{ familie.naam }}</h4>
+          <p>Bekijk de verhalen van deze familie</p>
+        </a>
+      {% endfor %}
+    </div>
+  </section>
+</section>
+
+{% endblock %}

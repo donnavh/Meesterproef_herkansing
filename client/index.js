@@ -243,3 +243,19 @@ if (straatSelect) {
   });
 }
 
+document.addEventListener('DOMContentLoaded', function () {
+  const zoekInput = document.getElementById('zoekInput');
+  const familieKaarten = document.querySelectorAll('.familie-kaart');
+
+  if (!zoekInput || !familieKaarten) return;
+
+  zoekInput.addEventListener('input', function () {
+    const zoekterm = zoekInput.value.toLowerCase();
+
+    familieKaarten.forEach(kaart => {
+      const naam = kaart.getAttribute('data-naam');
+      const zichtbaar = naam.includes(zoekterm);
+      kaart.style.display = zichtbaar ? '' : 'none';
+    });
+  });
+});

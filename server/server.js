@@ -50,6 +50,7 @@ app.get('/', async (req, res) => {
 
 app.get('/verhalen/:id', (req, res) => {
   const verhaalId = req.params.id;
+  const from = req.query.from || null;
 
   if (!testData) {
     return res.status(500).send('Data nog niet geladen');
@@ -63,7 +64,8 @@ app.get('/verhalen/:id', (req, res) => {
 
   return res.send(renderTemplate('server/views/verhaal-detail.liquid', {
     title: verhaalData.verhaal.titel,
-    item: verhaalData.verhaal
+    item: verhaalData.verhaal,
+    from
   }));
 });
 
@@ -136,5 +138,30 @@ app.get('/over-ons', async (req, res) => {
     title: 'Over ons'
   }));
 });
+app.get('/families', (req, res) => {
+  if (!testData) {
+    return res.status(500).send('Data nog niet geladen');
+  }
 
-/* Header pages */
+  const familieMap = new Map();
+  testData.forEach(item => {
+    const { familie, id } = item.verhaal;
+    if (!familieMap.has(familie)) {
+      familieMap.set(familie, id);
+    }
+  });
+
+  const families = Array.from(familieMap.entries()).map(([naam, id]) => ({
+    naam,
+    id
+  }));
+
+  return res.send(renderTemplate('server/views/families.liquid', {
+    title: 'Families',
+    families
+  }));
+});
+
+
+
+

@@ -67,16 +67,19 @@ ul.grid {
             margin: 0;
         }
 
-        h2{
+        h2 {
             font-size: 2rem;
             margin-bottom: 1rem;
             font-weight: 700;
         }
-        p{
+
+        p {
             font-size: 1.1rem;
             line-height: 1.6;
 
-        };
+        }
+
+        ;
     }
 
     /* Positionering */
@@ -106,11 +109,11 @@ ul.grid {
         padding: 2rem;
         border-radius: 1rem;
 
-       h3 {
-        font-size: 2rem;
-        color: var(--link-color);
-        margin-bottom: 1rem;
-       } 
+        h3 {
+            font-size: 2rem;
+            color: var(--link-color);
+            margin-bottom: 1rem;
+        }
     }
 
 
@@ -118,7 +121,7 @@ ul.grid {
     .peopleList {
         background: var(--black);
         color: var(--white);
-     
+
         padding: 2rem;
         border-radius: 1rem;
         color: #fff;
@@ -126,7 +129,7 @@ ul.grid {
 
         >* {
             color: var(--white);
-           
+
         }
 
         h2 {
@@ -152,12 +155,14 @@ ul.grid {
         }
     }
 
+
+
     .imageLeft,
     .imageRight {
         img {
             width: 100%;
             height: auto;
-            
+
         }
     }
 
@@ -191,10 +196,10 @@ ul.grid {
 .banner {
     margin: -1rem;
 
-    h1{
-    font-size: clamp(2rem, 6vw, 5rem);
-    font-weight: 700;
-    line-height: 1.1;
+    h1 {
+        font-size: clamp(2rem, 6vw, 5rem);
+        font-weight: 700;
+        line-height: 1.1;
     }
 
     img {
@@ -204,6 +209,30 @@ ul.grid {
 }
 
 /* 4 Mei */
+
+
+/* ///////
+NAVIGATIE 
+ ////////*/
+
+.navigatie-links {
+    margin: 2em 0 1em;
+    text-align: left;
+
+
+}
+
+.navigatie-links a {
+    display: inline-block;
+    background-color: #eee;
+    padding: 0.5em 1em;
+    border-radius: 8px;
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+
+}
+
 
 /* Gedenkmuur */
 .gedenkMuur {
@@ -241,25 +270,25 @@ ul.grid {
         text-align: center;
     }
 
-        ul {
+    ul {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+
+        li {
             position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 100%;
-            margin: 0;
-            padding: 0;
-            list-style-type: none;
+            bottom: 1rem;
 
-            li {
-                position: absolute;
-                bottom: 1rem;
-
-                img {
-                    width: 50px;
-                    height: 50px;
-                }
+            img {
+                width: 50px;
+                height: 50px;
             }
         }
+    }
 }
 
 /* Gedenkmuur */
