@@ -14,7 +14,7 @@
 <section class="section1">
 
     <h3 class="streetName">{{ item.straat }} <br> <p>stadsdeel oost</p></h3>
-    {% comment %} <p class="streetNameNmr"> {{ item.huisnummer }}</p> {% endcomment %}
+
 
     <div class="housjesContainer">
         <img src="/images/huis1.png" alt="amsterdams huisje 1" data-speed="1">
@@ -79,44 +79,6 @@
 </section>
 
 
-
-
-
-
-
-
-
 {% endblock %} 
 
 
-
-
-{% comment %} {% layout "server/layouts/base.liquid" %}
-
-{% block content %}
-<section class="voorbeeld">
-    <h1>{{ item.titel }}</h1>
-    <p><strong>Naam:</strong> {{ item.naam }}</p>
-    <p><strong>Geboren:</strong> {{ item.geboortedatum }}</p>
-    <p><strong>Overleden:</strong> {{ item.overleidingsdatum }}</p>
-
-    <h2>Verhaal</h2>
-
-    <div>
-        {% for tekst in item.verhalen %}
-        <article class="stop" tabindex="0">
-            <div class="text">
-                <header>
-                    <h2>{{ tekst.titel }}</h2>
-                    <time>{{ tekst.date }}</time>
-                </header>
-                <p>{{ tekst.tekst }}</p>
-                {% if item.image %}
-                <img src="{{ tekst.afbeelding }}" alt="{{ tekst.titel }}" />
-                {% endif %}
-            </div>
-        </article>
-        {% endfor %}
-    </div>
-</section>
-{% endblock %} {% endcomment %}

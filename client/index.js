@@ -19,17 +19,60 @@ if (mobileMenuLink) {
 }
 
 /* Homepage mensen animatie */
-const peopleList = document.querySelector('.people');
-const peopleCount = 933;
+// const peopleList = document.querySelector('.people');
+// const peopleCount = 933;
 
-if (peopleList) {
-  for (let i = 0; i < peopleCount; i++) {
-    const listItem = document.createElement('li');
-    listItem.innerHTML = `<i class="fa-solid fa-users"></i>`;
-    listItem.style.animationDelay = `${i / 4}s`;
-    peopleList.appendChild(listItem);
+// if (peopleList) {
+//   for (let i = 0; i < peopleCount; i++) {
+//     const listItem = document.createElement('li');
+//     listItem.innerHTML = `<i class="fa-solid fa-users"></i>`;
+//     listItem.style.animationDelay = `${i / 4}s`;
+//     peopleList.appendChild(listItem);
+//   }
+// }
+
+document.addEventListener("DOMContentLoaded", () => {
+  const peopleList = document.querySelector('.people');
+
+  if (!peopleList) return;
+
+  const totalPeople = 2800;
+
+  for (let i = 0; i < totalPeople; i++) {
+    const li = document.createElement('li');
+    li.style.animationDelay = `${i * 0.01}s`; // vertraag elke bol met 0.01s
+    peopleList.appendChild(li);
   }
-}
+});
+
+// const counter = document.getElementById('count');
+// let count = 0;
+
+// const interval = setInterval(() => {
+//   if (count >= 2800) {
+//     clearInterval(interval);
+//     return;
+//   }
+//   count += 20; // versnel of vertraag dit
+//   counter.textContent = count;
+// }, 5); // elke 5ms een stap
+
+document.addEventListener('DOMContentLoaded', () => {
+  const countEl = document.getElementById('count');
+  const total = 2800;
+  const duration = 3000; // 3 seconden
+  const stepTime = Math.floor(duration / total);
+
+  let current = 0;
+
+  const counter = setInterval(() => {
+    current++;
+    countEl.textContent = current.toLocaleString('nl-NL');
+    if (current >= total) clearInterval(counter);
+  }, stepTime);
+});
+
+
 
 const bloemList = document.querySelector('.bloem-lijst');
 const bloemen = document.querySelectorAll('.bloem');
@@ -259,3 +302,4 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 });
+

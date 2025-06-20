@@ -52,47 +52,26 @@
 
       <section class="bloem-container">
         <!-- Klikbare bloemen -->
+         <button>
         <img src="/images/bloemen/1.png" alt="Tulips" class="bloem" data-image="tulips.png" />
+        </button>
+        <button>
         <img src="/images/bloemen/2.png" alt="flowers" class="bloem" data-image="nature.png" />
+        </button>
+        <button>
         <img src="/images/bloemen/3.png" alt="violet-flower" class="bloem" data-image="violet-flower.png" />
+        </button>
+        <button>
         <img src="/images/bloemen/4.png" alt="roses" class="bloem" data-image="flower-bouquet.png" />
+        </button>
+        <button>
         <img src="/images/bloemen/5.png" alt="roses" class="bloem" data-image="flower-bouquet.png" />
+        </button>
       </section>
     </section>
 
 
 
-    {% comment %}
-    <section class="familie-scroll">
-      <h3>Families</h3>
-      <div class="familie-lijst" id="familieLijst">
-        {% for familie in families %}
-        <div>
-          <h4>Fam. {{ familie.naam }}</h4>
-          <a href="/verhalen/{{ familie.id }}">Meer informatie</a>
-        </div>
-        {% endfor %}
-      </div>
-    </section> {% endcomment %}
-
-<section class="familie-scroll">
-  <h3>Families</h3>
-  <div class="familie-lijst" id="familieLijst">
-    {% for familie in families %}
-   
-    
-<a href="/verhalen/{{ familie.id }}" class="familie-kaart">
-  <div class="familie-illustratie">
-    <img src="/images/gedenkmuur/ilustratie-gezinnen.png" alt="">
-  </div>
-  <h4>Fam. {{ familie.naam }}</h4>
-  <p>Bekijk de verhalen van deze familie</p>
-</a>
-
-
-    {% endfor %}
-  </div>
-</section>
 
   </section>
 

@@ -10,6 +10,8 @@
 @import '../server/views/verhaal-detail.css';
 @import '../server/views/gedenk-posters.css';
 
+@import '../server/views/families.css';
+
 
 /* component styling */
 @import '../server/components/card/card.css';

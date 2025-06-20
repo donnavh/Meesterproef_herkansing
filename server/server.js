@@ -43,8 +43,24 @@ app
 
 // ✅ Home route met verrijkte data
 app.get('/', async (req, res) => {
+  if (!testData) return res.status(500).send('Data niet beschikbaar');
+
+  const familieMap = new Map();
+  testData.forEach(item => {
+    const { familie, id } = item.verhaal; 
+    if (!familieMap.has(familie)) {
+      familieMap.set(familie, id);
+    }
+  });
+
+  const families = Array.from(familieMap.entries()).map(([naam, id]) => ({
+    naam,
+    id
+  }));
+
   return res.send(renderTemplate('server/views/index.liquid', {
-    title: 'Home'
+    title: 'Home',
+    families
   }));
 });
 
