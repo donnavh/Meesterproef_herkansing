@@ -8,11 +8,10 @@
   <p class="center">Klik op een familie om hun verhalen te bekijken.</p>
 
   <input type="text" id="zoekInput" placeholder="Zoek een familie..." class="zoekveld">
-  <section class="familie-scroll">
 
     <div class="familie-lijst" id="familieLijst">
       {% for familie in families %}
-        <a href="/verhalen/{{ familie.id }}?from=families" class="familie-kaart">
+        <a href="/verhalen/{{ familie.id }}?from=families" class="familie-kaart" data-naam="{{ familie.naam | downcase }}">
         <div class="familie-illustratie">
             <img src="/images/gedenkmuur/ilustratie-gezinnen.png" alt="">
           </div>
@@ -21,7 +20,7 @@
         </a>
       {% endfor %}
     </div>
-  </section>
+
 </section>
 
 {% endblock %}

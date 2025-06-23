@@ -78,6 +78,19 @@
 
 </section>
 
+<div class="verhaal-nav">
+    {% if vorige %}
+        <a href="/verhalen{{ vorige.id }}?from={{ from }}" class="cta-button">Fam. {{ vorige.naam }} </a>
+    {% endif %}
+
+    <a href="{% if from == 'families' %}/families{% else %}/gedenk-posters{% endif %}" class="cta-button">Terug naar overzicht</a>
+
+    {% if volgende %}
+        <a href="/verhalen/{{ volgende.id }}?from={{ from }}" class="cta-button">Fam. {{ volgende.naam }} </a>
+    {% endif %}
+</div>
+
+
 
 {% endblock %} 
 

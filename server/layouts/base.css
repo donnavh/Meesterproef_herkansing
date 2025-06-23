@@ -1,186 +1,77 @@
+/* ===================================
+   🌐 BASIS: Root & Thema Variabelen
+=================================== */
 :root {
   --black: #000;
   --white: #fff;
 
+  --main-blauw: #273D7C;
+  --secondary-blauw: #B1B9CF;
 
   --header-bg: #F6F1ED;
   --header-color: var(--black);
-  --link-color: #8B2300;
   --main-bg: var(--header-bg);
 
+  --color-link: #8B2300;
   --button-bg: var(--main-blauw);
-  --button-color: var(--white);
-  --button-br: 10px;
   --button-hover-bg: var(--secondary-blauw);
+  --button-color: var(--white);
 
+  --button-br: 10px;
   --input-br: 10px;
-
-  --main-blauw: #273D7C;
-  --secondary-blauw: #B1B9CF;
 }
 
+/* ===================================
+   🔄 Reset & Structuur
+=================================== */
 html {
   scroll-behavior: smooth;
 }
 
 *,
-*::before, *::after {
+*::before,
+*::after {
   box-sizing: border-box;
- }
+}
 
 body {
   display: grid;
   grid-template-rows: auto 1fr auto;
-  color: var(--white);
   min-height: 100dvh;
+  overflow-x: clip;
+  color: var(--white);
+ 
 }
 
+/* ===================================
+   📐 Containers & Afbeeldingen
+=================================== */
 .container {
   max-width: 1440px;
-  padding: 0 2rem;
   margin: 0 auto;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  color: var(--link-color);
-}
-
-a {
-  color: var(--link-color);
-  text-decoration: none;
+  padding: 0 2rem;
 }
 
 img {
   max-width: 100%;
-}
-
-header.header {
-  background-color: var(--header-bg);
-  color: var(--header-color);
-  padding: 1rem 0;
-  position: relative;
-  top: 0;
-  z-index: 100;
-
-  nav.desktopMenu {
-    display: none;
-
-    a{
-      text-decoration: none;
-      transition: all 0.3s;
-    }
-
-    a:hover {
-      text-decoration: none;
-      
-      transform: scale(1.10);
-    }
-
-    @media screen and (min-width: 768px) {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      flex-direction: row;
-    }
-  }
-
-  .mobileMenuToggle {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    @media screen and (min-width: 768px) {
-      display: none;
-    }
-  }
-
-
-.mobileMenu {
-  
-
-    display: none;
-  flex-direction: column;
-  position: absolute;
-  top: 90px; /* pas aan op je headerhoogte */
-  right: 1rem;
-  background-color: #ffffff;
-  border-radius: 12px;
-  padding: 1.5rem;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-  z-index: 1000;
-  min-width: 220px;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-  transform: translateY(-10px);
-  opacity: 0;
-  pointer-events: none;
-
-}
-
-.mobileMenu a {
-
   display: block;
-  padding: 0.75rem 0;
-  color: #8b2302;
-  font-weight: 600;
-  font-size: 1rem;
+}
+
+/* ===================================
+   🔠 Typografie & Links
+=================================== */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-link);
+}
+
+a {
+  color: var(--color-link);
   text-decoration: none;
-  border-bottom: 1px solid #e5eaf3;
-
 }
 
-.mobileMenu a:hover {
-  color: #8b2302;
-  text-decoration: underline;
-}
-
-.mobileMenu a:last-child {
-  border-bottom: none;
-}
-
-.mobileMenuLink i {
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.mobileMenu.active {
-
-  display: flex;
-  transform: translateY(0);
-  opacity: 1;
-  pointer-events: auto;
-}
-
-@media screen and (min-width: 768px) {
-  .mobileMenu {
-    display: none;
-  }
-}
-
-
-footer {
-  background: #212121;
-  color: var(--white);
-
-  p {
-    text-align: center;
-  }
-
-  a {
-    color: #fff;
-    transition: color 0.3s ease;
-
-    &:hover {
-      color: var(--link-color);
-    }
-  }
-}
-}
-
+/* ===================================
+   🔘 Buttons & Inputs
+=================================== */
 button,
 a.button {
   padding: 0.5rem 1rem;
@@ -191,10 +82,12 @@ a.button {
   cursor: pointer;
   transition: background-color 0.3s ease;
   text-decoration: none;
+}
 
-  &:hover, &:focus {
-    background-color: var(--button-hover-bg);
-  }
+button:hover,
+a.button:hover,
+a.button:focus {
+  background-color: var(--button-hover-bg);
 }
 
 input,
@@ -204,4 +97,129 @@ select {
   border-radius: var(--input-br);
   max-width: 300px;
   margin-right: 1rem;
+}
+
+/* ===================================
+   🧭 Navigatie (Header)
+=================================== */
+header.header {
+  background: var(--main-blauw);
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 1rem 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* 🖥️ Desktop navigatie */
+.desktopMenu {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .desktopMenu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .desktopMenu a {
+    color: white;
+    font-weight: 500;
+    transition: transform 0.3s ease;
+  }
+
+  .desktopMenu a:hover {
+    transform: scale(1.1);
+  }
+}
+
+/* 📱 Mobiele navigatie toggle */
+.mobileMenuToggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media screen and (min-width: 768px) {
+  .mobileMenuToggle {
+    display: none;
+  }
+}
+
+/* 📱 Mobiel menu zelf */
+.mobileMenu {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 90px;
+  right: 1rem;
+  background-color: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  min-width: 220px;
+  z-index: 1000;
+  transform: translateY(-10px);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.mobileMenu a {
+  display: block;
+  padding: 0.75rem 0;
+  color: var(--color-link);
+  font-weight: 600;
+  border-bottom: 1px solid #e5eaf3;
+}
+
+.mobileMenu a:last-child {
+  border-bottom: none;
+}
+
+.mobileMenu a:hover {
+  text-decoration: underline;
+}
+
+.mobileMenu.active {
+  display: flex;
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* 📦 Nav container (zowel desktop als mobiel) */
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 90vw;
+  margin: 0 auto;
+  padding: 0 2vw;
+}
+
+/* ===================================
+   🦶 Footer
+=================================== */
+footer {
+  background: #212121;
+  color: white;
+  padding: 2rem;
+
+  p {
+    text-align: center;
+  }
+
+  a {
+    color: white;
+    transition: color 0.3s ease;
+  }
+
+  a:hover {
+    color: var(--color-link);
+  }
 }

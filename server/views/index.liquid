@@ -2,80 +2,68 @@
 
 {% block content %}
 
+<!-- 🎯 Banner -->
 <section class="banner">
   <div class="container">
-    <h1><span>HOUD DE</span>
-        <span style="text-align: center;">HERINNERING</span>
-        <span class="red" style="text-align: right;">LEVEND</span>
+    <h1>
+      <span>HOUD DE</span>
+      <span style="text-align: center;">HERINNERING</span>
+      <span class="red" style="text-align: right;">LEVEND</span>
     </h1>
-</div>
+  </div>
 </section>
 
+<!-- 🧱 Intro / Mensenanimatie + Info -->
+<section class="homepage-wrapper">
+  <div class="container homepageContent">
 
-
-    <section>
-        <div class="container">
-            <div class="homepageContent">
-      
-            <div class="peopleList">
-
-        <h2><span id="count">0</span>Mensen</h2>
-        <p>...werden tussen 1940 en 1945 uit de Oosterparkbuurt gedeporteerd.</p>
-        <ul class="people">
-            {% for i in (1..100) %}
-                <li style="--i: {{ i }}"></li>
-            {% endfor %}
-        </ul>
+    <div class="peopleList">
+      <h2><span id="count">0</span> Mensen</h2>
+      <p>...werden tussen 1940 en 1945 uit de Oosterparkbuurt gedeporteerd.</p>
+      <ul class="people">
+        {% for i in (1..100) %}
+          <li style="--i: {{ i }}"></li>
+        {% endfor %}
+      </ul>
+      <a href="/gedenk-posters" class="cta-button" style="margin-top: 2rem;">Bekijk de Gedenkmuur</a>
     </div>
-            
-      
-                <div class="info">
-                    <h3>Herdenk door te vertellen</h3>
-                    <p>
-                        In de jaren tussen 1940 en 1945 zijn door de Duitse bezetter meer dan 2800 mensen uit de
-                        Oosterparkbuurt gedeporteerd en vermoord in Oost-Europa. Het Joodse leven in de buurt, dat
-                        voor de oorlog bloeiende was, verdween.
-                    </p>
-                    <p>
-                        Wie waren deze mensen? Hoe zagen hun levens eruit? Wat hebben ze tijdens de oorlog
-                        meegemaakt? Op deze vragen proberen we met de gedenkposters antwoord te geven. Zo'n veertig
-                        buurtbewoners in wiens huizen Joodse mensen hebben gewoond hebben al onderzoek gedaan naar
-                        die oud-bewoners en hun verhalen opgeschreven. De gedenkposters hangen in april en mei door
-                        de hele buurt voor de ramen. Ook worden er wandelingen langs de posters georganiseerd.
-                    </p>
-                    <p>
-                        De gedenkposters zijn geïnspireerd op het project Namen en Nummers van kunstenaar Ida van
-                        der Lee. Ontdek hier meer over Namen en Nummers.
-                    </p>
-                </div>
-               
-      
-        </div>
-      </section>  
 
+    <div class="info">
+      <h3>Herdenk door te vertellen</h3>
+      <p>
+        In de jaren tussen 1940 en 1945 zijn meer dan 2800 mensen uit de Oosterparkbuurt gedeporteerd en vermoord.
+      </p>
+      <p>
+        Wie waren zij? Buurtbewoners vertellen hun verhalen via gedenkposters, wandelingen en onderzoek.
+      </p>
+      <p>
+        De posters zijn geïnspireerd op <strong>Namen en Nummers</strong> van Ida van der Lee.
+      </p>
+      <a href="/over-ons" class="cta-button">Lees meer over dit project</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- 👨‍👩‍👧 Familiesectie -->
 <section class="begin-hier">
-    <div class="container">
+  <div class="homepage-familie container">
     <h2>Begin met een familieverhaal</h2>
     <p>Duik direct in één van de verhalen van de families uit de Oosterparkbuurt</p>
-    
 
     <div class="familie-suggesties">
-    {% for familie in families limit: 3 %}
+      {% for familie in families limit: 3 %}
         <a href="/verhalen/{{ familie.id }}" class="familie-link">
-        <div class="familie-kaart">
-        <img src="/images/gedenkmuur/ilustratie-gezinnen.png" alt="Fam. {{ familie.naam }}">
-        <h4>Fam. {{ familie.naam }} </h4>
-        </div>
+          <div class="familie-kaart">
+            <img src="/images/gedenkmuur/ilustratie-gezinnen.png" alt="Fam. {{ familie.naam }}">
+            <h4>Fam. {{ familie.naam }}</h4>
+          </div>
         </a>
-    {% endfor %}
+      {% endfor %}
     </div>
 
     <a href="/families" class="cta-button">Bekijk alle families</a>
-    </div>
+  </div>
 </section>
-
-
-
-
 
 {% endblock %}

@@ -1,64 +1,67 @@
 <!DOCTYPE html>
 <html lang="nl">
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  {% block head %}
-
-  <!-- Font-awesome -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-
-  <link rel="icon" href="/images/logo.png" type="image/x-icon">
 
   <title>{{ title }}</title>
-  {% endblock %}
+  <link rel="icon" href="/images/logo.png" type="image/x-icon">
+
+  <!-- Font Awesome (indien nog nodig, anders weghalen) -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+  <!-- CSS & JS -->
   <link rel="stylesheet" href="/index.css">
   <script src="/index.js" defer></script>
+
+  {% block head %}{% endblock %}
   {% block styles %}{% endblock %}
   {% block scripts %}{% endblock %}
 </head>
 
 <body>
   <header class="header">
-    <section class="container">
+    <section class="nav-container">
+
+      <!-- 🌐 Desktop Navigatie -->
       <nav class="desktopMenu">
-        <img src="/images/logo.png" alt="logo" width="auto" height="75" />
+        <img src="/images/logo.png" alt="Logo Oost west thuis best" width="auto" height="75" />
         <a href="/">Home</a>
-        <a href="/gedenk-posters">Gedenk posters</a>
+        <a href="/gedenk-posters">Gedenkmuur</a>
         <a href="/families">Families</a>
         <a href="/over-ons">Over ons</a>
       </nav>
 
+      <!-- 📱 Mobiel Navigatie Toggle -->
       <div class="mobileMenuToggle">
-        <a href="/"><img src="/images/logo.png" alt="logo" width="auto" height="75" /></a>
-        <a href="javascript:;" class="mobileMenuLink"><i class="fa-solid fa-bars"></i></a>
+        <a href="/"><img src="/images/logo.png" alt="Logo mobiel" width="auto" height="75" /></a>
+        <a href="javascript:;" class="mobileMenuLink" aria-label="Open menu"><i class="fa-solid fa-bars"></i></a>
       </div>
 
+      <!-- 📱 Mobiele Navigatie -->
       <nav class="mobileMenu">
         <a href="/">Home</a>
         <a href="/gedenk-posters">Gedenkmuur</a>
         <a href="/families">Families</a>
         <a href="/over-ons">Over ons</a>
-        
-
       </nav>
+
     </section>
   </header>
 
+  <!-- 🧱 Pagina Inhoud -->
   <main class="main">
     {% block content %}{% endblock %}
   </main>
 
+  <!-- 🦶 Footer -->
   <footer>
     <section class="container">
       <p>
         <i class="fa-regular fa-copyright"></i>
-        2025 <a href="https://github.com/tymoNL/Oost-west_thuis_best" target="_blank">Oost west thuis
-          best</a> Alle rechten voorbehouden
+        2025 <a href="https://github.com/tymoNL/Oost-west_thuis_best" target="_blank">Oost west thuis best</a> – Alle rechten voorbehouden
       </p>
     </section>
   </footer>
 </body>
-
 </html>

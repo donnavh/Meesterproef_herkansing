@@ -1,35 +1,18 @@
 import './index.css';
 
 /* Mobile header logica */
-const mobileMenuLink = document.querySelector('.mobileMenuLink');
 
-if (mobileMenuLink) {
-  mobileMenuLink.addEventListener("click", function () {
-    document.querySelector('.mobileMenu').classList.toggle('active');
 
-    const icon = this.querySelector('i');
-    if (icon.classList.contains('fa-bars')) {
-      icon.classList.remove('fa-bars');
-      icon.classList.add('fa-xmark');
-    } else {
-      icon.classList.remove('fa-xmark');
-      icon.classList.add('fa-bars');
-    }
+document.addEventListener('DOMContentLoaded', () => {
+  const toggle = document.querySelector('.mobileMenuLink');
+  const menu = document.querySelector('.mobileMenu');
+  toggle?.addEventListener('click', () => {
+    menu.classList.toggle('active');
   });
-}
+});
+
 
 /* Homepage mensen animatie */
-// const peopleList = document.querySelector('.people');
-// const peopleCount = 933;
-
-// if (peopleList) {
-//   for (let i = 0; i < peopleCount; i++) {
-//     const listItem = document.createElement('li');
-//     listItem.innerHTML = `<i class="fa-solid fa-users"></i>`;
-//     listItem.style.animationDelay = `${i / 4}s`;
-//     peopleList.appendChild(listItem);
-//   }
-// }
 
 document.addEventListener("DOMContentLoaded", () => {
   const peopleList = document.querySelector('.people');
@@ -45,17 +28,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// const counter = document.getElementById('count');
-// let count = 0;
-
-// const interval = setInterval(() => {
-//   if (count >= 2800) {
-//     clearInterval(interval);
-//     return;
-//   }
-//   count += 20; // versnel of vertraag dit
-//   counter.textContent = count;
-// }, 5); // elke 5ms een stap
 
 document.addEventListener('DOMContentLoaded', () => {
   const countEl = document.getElementById('count');

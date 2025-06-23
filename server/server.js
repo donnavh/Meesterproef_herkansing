@@ -78,11 +78,35 @@ app.get('/verhalen/:id', (req, res) => {
     return res.status(404).send('Verhaal niet gevonden');
   }
 
+  const familieMap = new Map();
+  testData.forEach(item => {
+    const { familie, id } = item.verhaal;
+    if (!familieMap.has(familie)) {
+      familieMap.set(familie, id);
+    }
+  });
+
+  const families = Array.from(familieMap.entries()).map(([naam, id]) => ({
+    naam,
+    id
+  }));
+
+  const huidigeFamilie = families.find(f => f.id === verhaalId);
+  const index = families.findIndex(f => f.id === verhaalId);
+
+  const vorige = index > 0 ? families[index - 1] : null;
+  const volgende = index < families.length - 1 ? families[index + 1] : null;
+
+
   return res.send(renderTemplate('server/views/verhaal-detail.liquid', {
     title: verhaalData.verhaal.titel,
     item: verhaalData.verhaal,
-    from
+    from,
+    vorige,
+    volgende
   }));
+
+  
 });
 
 app.get('/print/qr/:id', async (req, res) => {
