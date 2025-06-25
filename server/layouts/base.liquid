@@ -23,28 +23,33 @@
   <header class="header">
     <section class="nav-container">
 
-      <!-- 🌐 Desktop Navigatie -->
-      <nav class="desktopMenu">
-        <img src="/images/logo.png" alt="Logo Oost west thuis best" width="auto" height="75" />
+    <div class="nav-left">
+      <a href="/">
+      <img src="/images/logo.png" alt="Logo 4 mei commite" height="75">
+      </a>
+    </div>
+
+    <!-- nav links desktop -->
+    <nav class="desktopMenu">
         <a href="/">Home</a>
         <a href="/gedenk-posters">Gedenkmuur</a>
         <a href="/families">Families</a>
         <a href="/over-ons">Over ons</a>
-      </nav>
+    </nav>
 
-      <!-- 📱 Mobiel Navigatie Toggle -->
-      <div class="mobileMenuToggle">
-        <a href="/"><img src="/images/logo.png" alt="Logo mobiel" width="auto" height="75" /></a>
-        <a href="javascript:;" class="mobileMenuLink" aria-label="Open menu"><i class="fa-solid fa-bars"></i></a>
-      </div>
+  <div class="mobileMenuToggle">
+    {% comment %} <a href="/"><img src="/images/logo.png" alt="logo mobiel" height="75"></a> {% endcomment %}
+    <a href="javascript:;" class="mobileMenuLink" aria-label="Open menu">
+      <i class="fa-solid fa-bars"></i>
+    </a>
+  </div>
 
-      <!-- 📱 Mobiele Navigatie -->
-      <nav class="mobileMenu">
-        <a href="/">Home</a>
-        <a href="/gedenk-posters">Gedenkmuur</a>
-        <a href="/families">Families</a>
-        <a href="/over-ons">Over ons</a>
-      </nav>
+  <nav class="mobileMenu">
+      <a href="/">Home</a>
+      <a href="/gedenk-posters">Gedenkmuur</a>
+      <a href="/families">Families</a>
+      <a href="/over-ons">Over ons</a>
+    </nav>
 
     </section>
   </header>

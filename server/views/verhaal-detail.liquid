@@ -4,9 +4,9 @@
 
 <div class="navigatie-links">
   {% if from == "families" %}
-    <a href="/families">← Terug naar families</a>
+    <a href="/families" class="terug">← Terug naar families</a>
   {% else %}
-    <a href="/gedenk-posters">← Terug naar gedenkmuur</a>
+    <a href="/gedenk-posters" class="terug">← Terug naar gedenkmuur</a>
   {% endif %}
 </div>
 
@@ -80,7 +80,7 @@
 
 <div class="verhaal-nav">
     {% if vorige %}
-        <a href="/verhalen{{ vorige.id }}?from={{ from }}" class="cta-button">Fam. {{ vorige.naam }} </a>
+        <a href="/verhalen/{{ vorige.id }}?from={{ from }}" class="cta-button">Fam. {{ vorige.naam }} </a>
     {% endif %}
 
     <a href="{% if from == 'families' %}/families{% else %}/gedenk-posters{% endif %}" class="cta-button">Terug naar overzicht</a>

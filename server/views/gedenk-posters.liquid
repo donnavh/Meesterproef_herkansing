@@ -1,6 +1,5 @@
 {% layout "server/layouts/base.liquid" %}
 
-
 {% block content %}
 
 <script>
@@ -8,71 +7,61 @@
   window.numberOfRoses = {{ numberOfRoses }};
 </script>
 
+<section class="container">
+  <h2 class="center">Digitale Gedenkmuur</h2>
+  <p class="center">Kies een straat en klik op het nummer om het verhaal te lezen van de familie.</p>
 
-
-
-  <section class="container" style="overflow-x: hidden;">
-
-    <h2 class="center">Digitale Gedenkmuur</h2>
-    <p class="center">Kies een straat en klik op het nummer om het verhaal te lezen van de familie.</p>
-
-    <section class="straat-selectie">
-      <select id="straatSelect">
-        <option value="">Kies een straat:</option>
-        {% for straat in straten %}
+  <section class="straat-selectie">
+    <select id="straatSelect">
+      <option value="">Kies een straat:</option>
+      {% for straat in straten %}
         <option value="{{ straat }}">{{ straat }}</option>
-        {% endfor %}
-      </select>
-    </section>
+      {% endfor %}
+    </select>
+  </section>
 
-    <div class="muur-background">
+  <div class="muur-background">
     <div class="muur-scroll">
       <div class="muur" id="muur">
         {% if selectedStraat %}
-        <h4>Verhalen uit {{ selectedStraat }}</h4>
-        {% for item in filteredItems %}
-        <div class="verhaal-kaart">
-          <div class="huisnummer-bord">{{ item.verhaal.huisnummer }}</div>
-          <p class="verhaal-naam">{{ item.verhaal.naam }}</p>
-          <a href="/verhalen/{{ item.verhaal.id }}">Bekijk dit verhaal</a>
-        </div>
-        {% endfor %}
+          <h4>Verhalen uit {{ selectedStraat }}</h4>
+          {% for item in filteredItems %}
+            <div class="verhaal-kaart">
+              <div class="huisnummer-bord">{{ item.verhaal.huisnummer }}</div>
+              <p class="verhaal-naam">{{ item.verhaal.naam }}</p>
+              <a href="/verhalen/{{ item.verhaal.id }}">Bekijk dit verhaal</a>
+            </div>
+          {% endfor %}
         {% endif %}
       </div>
-      
 
-      <!-- Hier worden de bloemen toegevoegd -->
-      <ul class="bloem-lijst" style="list-style: none; padding: 0;"></ul>
+      <!-- 🌷 Bloemen verschijnen onder de muur-kaarten -->
+      <ul class="bloem-lijst" style="list-style: none;"></ul>
     </div>
-    </div>
+  </div>
 
-    <section class="herdenking">
-      <h3 class="center">Herdenken hoeft niet alleen op 4 Mei</h3>
-      <p class="center">Gedenk het hele jaar door en kies een bloem hieronder.</p>
+  <section class="herdenking">
+    <h3 class="center">Herdenken hoeft niet alleen op 4 Mei</h3>
+    <p class="center">Gedenk het hele jaar door en kies een bloem hieronder.</p>
 
-      <section class="bloem-container">
-        <!-- Klikbare bloemen -->
-         <button>
+    <section class="bloem-container">
+      <button class="bloemButton">
         <img src="/images/bloemen/1.png" alt="Tulips" class="bloem" data-image="tulips.png" />
-        </button>
-        <button>
+      </button>
+      <button class="bloemButton">
         <img src="/images/bloemen/2.png" alt="flowers" class="bloem" data-image="nature.png" />
-        </button>
-        <button>
+      </button>
+      <button class="bloemButton">
         <img src="/images/bloemen/3.png" alt="violet-flower" class="bloem" data-image="violet-flower.png" />
-        </button>
-        <button>
+      </button>
+      <button class="bloemButton">
         <img src="/images/bloemen/4.png" alt="roses" class="bloem" data-image="flower-bouquet.png" />
-        </button>
-        <button>
+      </button>
+      <button class="bloemButton">
         <img src="/images/bloemen/5.png" alt="roses" class="bloem" data-image="flower-bouquet.png" />
-        </button>
-      </section>
+      </button>
     </section>
-
-
-
-
   </section>
+</section>
 
 {% endblock %}

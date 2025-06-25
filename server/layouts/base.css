@@ -112,6 +112,8 @@ header.header {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+
+
 /* 🖥️ Desktop navigatie */
 .desktopMenu {
   display: none;
@@ -192,16 +194,46 @@ header.header {
   pointer-events: auto;
 }
 
+.mobileMenuLink{
+  position: relative;
+  right: 20px;
+}
+
+.mobileMenuLink i{
+  color: var(--white);
+}
 /* 📦 Nav container (zowel desktop als mobiel) */
 .nav-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   max-width: 90vw;
+  flex-wrap: wrap;
   margin: 0 auto;
   padding: 0 2vw;
 }
 
+.nav-left{
+  flex: 1;
+}
+
+.nav-right{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 2rem;
+  flex: 2;
+}
+
+.nav-right a{
+  color: white;
+  font-weight: 500;
+  transition: transform 0.3s ease;
+}
+
+.nav-right a:hover{
+  transform: scale(1.1);
+}
 /* ===================================
    🦶 Footer
 =================================== */

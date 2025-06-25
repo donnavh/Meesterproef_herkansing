@@ -105,7 +105,6 @@ app.get('/verhalen/:id', (req, res) => {
     vorige,
     volgende
   }));
-
   
 });
 
