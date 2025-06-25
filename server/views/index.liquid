@@ -18,15 +18,18 @@
   <div class="container homepageContent">
 
     <div class="peopleList">
-      <h2><span id="count">0</span> Mensen</h2>
-      <p>...werden tussen 1940 en 1945 uit de Oosterparkbuurt gedeporteerd.</p>
-      <ul class="people">
-        {% for i in (1..100) %}
-          <li style="--i: {{ i }}"></li>
-        {% endfor %}
-      </ul>
-      <a href="/gedenk-posters" class="cta-button" style="margin-top: 2rem;">Bekijk de Gedenkmuur</a>
-    </div>
+  <h2><span id="count">0</span> Mensen</h2>
+  <p>...werden tussen 1940 en 1945 uit de Oosterparkbuurt gedeporteerd.</p>
+
+  <div class="people">
+    {% for i in (1..100) %}
+      <div class="person-dot" style="animation-delay: {{ i | times: 0.01 }}s;"></div>
+    {% endfor %}
+  </div>
+
+  <a href="/gedenk-posters" class="cta-button" style="margin-top: 2rem;">Bekijk de Gedenkmuur</a>
+</div>
+
 
     <div class="info">
       <h3>Herdenk door te vertellen</h3>

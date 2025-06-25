@@ -1,20 +1,30 @@
-
 :root {
   --color-primary: #a30000;
-  --color-secondary: #273D7c;
+  --color-secondary: #273d7c;
   --color-secondary-dark: #1c2f60;
   --color-light: #f9f9f9;
   --color-info-bg: #f6f1ed;
   --color-link: #8b2300;
-  --color-background: #fff;
-  --color-text: #333;
-  --color-muted-text: #555;
+  --color-background: #ffffff;
+  --color-text: #333333;
+  --color-muted-text: #555555;
   --color-accent: #fef3f3;
 }
 
 /* ======================================
-   RESET & STRUCTUUR
+   🔄 RESET & STRUCTUUR
 ====================================== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--color-background);
+  color: var(--color-text);
+  font-family: 'Open Sans', sans-serif;
+}
 
 ul, li {
   margin: 0;
@@ -35,9 +45,8 @@ ul, li {
 }
 
 /* ======================================
-   BANNER
+   🏷️ BANNER
 ====================================== */
-
 .banner {
   margin: -1rem;
 }
@@ -56,9 +65,8 @@ ul, li {
 }
 
 /* ======================================
-   VISUALISATIE PEOPLE
+   🔵 VISUALISATIE: PEOPLE
 ====================================== */
-
 .peopleList {
   background-color: var(--color-accent);
   padding: 3em 1em;
@@ -66,7 +74,7 @@ ul, li {
   text-align: center;
   max-width: 85vw;
   margin: 0 auto;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
   opacity: 0;
   transform: translateY(30px);
   animation: fadeIn 1s ease forwards;
@@ -85,23 +93,26 @@ ul, li {
   margin-bottom: 2em;
 }
 
-.peopleList ul.people {
+.people {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 0.4em;
+  gap: 0.3em;
 }
 
-.peopleList li {
-  width: 12px;
-  height: 12px;
+.person-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--color-secondary);
   border-radius: 50%;
-  background-color: var(--color-primary);
   opacity: 0;
-  animation: bubble 0.6s ease forwards;
+  animation: fadeInDot 0.4s ease-in forwards;
 }
-.peopleList li:nth-child(n) {
-  animation-delay: calc(0.01s * var(--i));
+
+@keyframes fadeInDot {
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes fadeIn {
@@ -111,21 +122,14 @@ ul, li {
   }
 }
 
-@keyframes bubble {
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
 /* ======================================
-   📘 HOMEPAGE CONTENT
+   🏠 HOMEPAGE CONTENT
 ====================================== */
-
 .homepage-wrapper {
   display: flex;
   flex-direction: column;
   gap: 3rem;
+  margin-bottom: 1em;
 }
 
 .homepageContent {
@@ -157,9 +161,8 @@ ul, li {
 }
 
 /* ======================================
-    BEGIN HIER / FAMILIE-SUGGESTIES
+   🧭 BEGIN HIER + FAMILIE SUGGESTIES
 ====================================== */
-
 .begin-hier {
   background: var(--color-light);
   padding: 3em 1em;
@@ -226,6 +229,9 @@ ul, li {
   margin-bottom: 1rem;
 }
 
+/* ======================================
+   🎯 CTA BUTTON
+====================================== */
 .cta-button {
   background: var(--color-secondary);
   color: white;
@@ -234,6 +240,7 @@ ul, li {
   text-decoration: none;
   font-weight: bold;
   display: inline-block;
+  transition: background 0.3s ease;
 }
 
 .cta-button:hover {
@@ -243,7 +250,6 @@ ul, li {
 /* ======================================
    📱 RESPONSIVE
 ====================================== */
-
 @media screen and (min-width: 992px) {
   .homepageContent {
     flex-direction: row;

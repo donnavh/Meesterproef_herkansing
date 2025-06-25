@@ -52,7 +52,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-color: var(--color-brick-light);
-  padding: 4rem 2rem;
+  padding: 0 2rem;
   background-size: cover;
   background-position: center;
   position: relative;
@@ -102,17 +102,35 @@ overflow-y: hidden;
 }
 
 .verhaal-kaart {
-  background-color: #fffffffa;
-  border: 1px solid #e0e6ef;
-  border-radius: 1rem;
+ 
+ background-color: rgba(255, 255, 255, 0.88);
+  background-image: url('/images/textures/paper-light.png'); /* voeg een subtiele textuur toe */
+  background-size: cover;
+  border: 1.5px solid rgba(160, 160, 160, 0.4);
+  border-radius: 0.5rem;
   padding: 1.5rem;
   min-width: 240px;
   text-align: center;
   color: var(--color-text);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08);
   scroll-snap-align: center;
   flex-shrink: 0;
   transition: transform 0.2s ease;
+  position: relative;
+  font-family: 'Georgia', serif;
+}
+
+.verhaal-kaart::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 20px;
+  background: rgba(200, 200, 200, 0.6);
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 }
 
 .verhaal-kaart:hover {
@@ -165,7 +183,9 @@ overflow-y: hidden;
 }
 
 .verhaal-kaart a:hover {
-  background-color: #f0f4f8;
+  /* background-color: #f0f4f8; */
+  /* transform: translateY(-3px); */
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
 }
 
 .bloem-lijst {
@@ -228,7 +248,7 @@ overflow-y: hidden;
 }
 
 .herdenking {
-  padding: 3rem 1rem;
+  padding: 0 1rem;
   background-color: var(--color-info-bg);
   border-top: 4px solid var(--color-secondary);
 }

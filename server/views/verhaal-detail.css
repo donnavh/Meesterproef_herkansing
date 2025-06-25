@@ -1,286 +1,248 @@
+:root {
+  --color-primary: #a30000;
+  --color-secondary: #273d7c;
+  --color-secondary-dark: #1c2f60;
+  --color-accent: #fef3f3;
+  --color-info-bg: #f6f1ed;
+  --color-background: #ffffff;
+  --color-text: #333333;
+  --color-link: #8b2300;
+  --color-muted: #555;
+  --main-blauw: #273d7c;
+  --color-header-blue: #1a3e89;
+  --secondary-blauw: #273d7c;
+}
 
-body{
-    padding:0;
-    margin:0;
-  }
-  
-  
-  .section1{
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centreer de inhoud horizontaal */
-    padding: 2em; /* Voeg wat ruimte toe rondom de sectie */
-    /* margin-bottom:3em; */
-    z-index:-1;
-    overflow: hidden;
-    background: linear-gradient(0deg,rgba(153, 153, 153, 1) 0%, rgba(255, 255, 255, 1) 8%);
-  }
+body {
+  margin: 0;
+  padding: 0;
+}
 
-  
+/* =============== Introductie =============== */
+.section1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2em;
+  background: linear-gradient(0deg, rgba(153, 153, 153, 1) 0%, rgba(255, 255, 255, 1) 8%);
+  overflow: hidden;
+  z-index: -1;
+}
 
-  .texttoscroll{
-    margin-bottom:3em;
-    z-index:1;
-    text-align: center;
-  }
-  
-  
-  .streetName{
-    background: linear-gradient(318deg,rgba(39, 61, 124, 1) 0%, rgb(53, 86, 179) 51%, rgba(39, 61, 124, 1) 100%);
-    color: #fff;
-    padding: .7em;
-    border-radius: .3em;
-    width:fit-content;
-    max-width: 90%;
-    border: 1.8px solid #fff;
-    box-shadow: #273D7C 0px 2px 5px, #273D7C 0px 0px 0px 4px;
-    margin-left:auto;
-    font-size:1em;
-    text-transform: uppercase;
-    z-index:4;
-    word-wrap: break-word;
+.texttoscroll {
+  margin-bottom: 3em;
+  text-align: center;
+  z-index: 1;
+}
 
-    p{
-        font-weight: 350;
-        font-size: 0.8em;
-        margin:0;
-        margin-top:.5em;
-        text-align:right;
-        
-    }
-  }
-  
-  @media (max-width: 768px) {
-    .streetName {
-      font-size: 0.9em; /* Maak de tekst iets kleiner op kleinere schermen */
-      padding: 0.5em; /* Verminder de padding */
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .streetName {
-      font-size: 0.8em; /* Maak de tekst nog kleiner op zeer kleine schermen */
-      padding: 0.4em;
-    }
-  }
+.streetName {
+  background: linear-gradient(318deg, var(--color-header-blue) 0%, var(--color-header-blue) 51%, var(--color-secondary) 100%);
+  color: #fff;
+  padding: 0.7em;
+  border-radius: 0.3em;
+  max-width: 90%;
+  width: fit-content;
+  margin-left: auto;
+  border: 1.8px solid #fff;
+  box-shadow: var(--color-secondary) 0px 2px 5px, var(--color-secondary) 0px 0px 0px 4px;
+  font-size: 1em;
+  text-transform: uppercase;
+  z-index: 4;
+  word-wrap: break-word;
+}
 
+.streetName p {
+  font-weight: 350;
+  font-size: 0.8em;
+  margin: 0.5em 0 0 0;
+  text-align: right;
+}
 
-  .tree1 {
-    top: 24%; /* Gebruik viewport hoogte voor positionering */
-    left: 5vw; /* Gebruik viewport breedte voor positionering */
-    position: absolute;
-    z-index: 0; /* Zorg dat de bomen achter de huisjes staan */
-    width: 20vw; /* Gebruik viewport breedte voor grootte */
-    opacity: 0.8; /* Maak de boom iets transparant */
+@media (max-width: 768px) {
+  .streetName {
+    font-size: 0.9em;
+    padding: 0.5em;
   }
-  
-  .tree2 {
-    top: 26%;
-    left: 15vw;
-    position: absolute;
-    z-index: 0;
-    width: 18vw;
-    opacity: 0.95;
-  }
-  
-  .tree3 {
-    top: 24%;
-    right: 10vw;
-    position: absolute;
-    z-index: 0;
-    width: 20vw;
-    opacity: 0.8;
-  }
-  
-  .tree4 {
-    top: 26%;
-    right: 20vw;
-    position: absolute;
-    z-index: 0;
-    width: 18vw;
-    opacity: 0.95;
-  }
+}
 
+@media (max-width: 480px) {
+  .streetName {
+    font-size: 0.8em;
+    padding: 0.4em;
+  }
+}
 
-  
-  
-  /* huisjes */
-  
+/* =============== Bomen =============== */
+.tree1, .tree2, .tree3, .tree4 {
+  position: absolute;
+  z-index: 0;
+  opacity: 0.8;
+}
+
+.tree1 { top: 24%; left: 5vw; width: 20vw; }
+.tree2 { top: 26%; left: 15vw; width: 18vw; opacity: 0.95; }
+.tree3 { top: 24%; right: 10vw; width: 20vw; }
+.tree4 { top: 26%; right: 20vw; width: 18vw; opacity: 0.95; }
+
+/* =============== Huisjes =============== */
 .housjesContainer {
   position: relative;
   display: flex;
-  flex-wrap: nowrap; /* Prevent wrapping */
-  gap: 1em;
   justify-content: center;
-  overflow-x: hidden; /* Allow horizontal scroll if screen is too small */
-  z-index: 1;
+  gap: 1em;
+  flex-wrap: nowrap;
+  overflow-x: hidden;
   padding: 1em;
+  z-index: 1;
 }
 
 .housjesContainer img {
   flex: 1 1 auto;
-  width: 10%; /* Adjust this based on how many images you want visible */
-  max-width: 100px; /* Optional: limit the max size */
-  height: auto;
-  transition: transform 0.1s ease-out;
+  width: 10%;
+  max-width: 100px;
+  opacity: 0.75;
+  transform: scale(0.95);
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
-  
-  
-  /* ///////////////// */
-  /* SCROLL TIME LINE */
-  /* ///////////////// */
-  
-  @keyframes move {
-      to {
-          /* Move horizontally so that right edge is aligned against the viewport */
-          transform: translateX(calc(-100% + 100vw));
-      }
-  }
-  
-  #sectionPin {
-      /* Stretch it out, so that we create room for the horizontal scroll animation */
-      height: 500vh;
-      overflow: visible; /* To make position sticky work … */
-  
-      view-timeline-name: --section-pin-tl;
-      view-timeline-axis: block;
-    background-image: url("/images/1steoosterparkstraat.png");
-    max-width:100vw;
-    background-size: cover; 
-    background-position: center; 
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-  }
-  
-  
-  
-  
-  .pin-wrap-sticky {
-      /* Stick to Top */
-      height: 100vh;
-      width: 100vw;
-      position: sticky;
-      top: 0;
-  
-      width: 100vw;
-      overflow-x: hidden;
-  }
-  
-  .pin-wrap {
-      height: 100vh;
-      width: 250vmax;
-    gap:3rem;
-    
-     display: flex;
-     justify-content: flex-start;
-     align-items: center;
-  
-      /* Hook animation */
-      will-change: transform;
-      animation: linear move forwards;
-  
-      /* Link animation to view-timeline */
-      animation-timeline: --section-pin-tl;
-      animation-range: contain 0% contain 100%;
-  }
-  
-  .introtekst{
-    text-align: center;
-    background: radial-gradient(circle,rgba(84, 3, 3, .8) 0%, rgba(46, 3, 3, .8) 100%);
-    color: white;
-    padding: 90px;
-    border-radius: 10px;
-    box-sizing: border-box;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    margin-left: 10em;
-    margin-right: 10em;
-    width: 80vw;
-    height:17em;
 
-    h2{
-        color:white;
-        margin-top:0;
-    }
+/* =============== Scroll Section =============== */
+@keyframes move {
+  to {
+    transform: translateX(calc(-100% + 100vw));
+  }
+}
 
-    h3{
-        color: #fff;
-    }
-  }
-  
-  .img{
-    background-color:#51515182;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.614);
-    height: auto;
-    width: 711px;
-    max-width: 100%;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    padding: 2em;
-    gap:1em;
-  }
-  
-  .img img{
-   width:10em;
-    height: auto;
-    border-radius: 10px;
-  }
-  
-  .imgContent {
-    display: flex;
-    flex-direction: column; /* Plaats de tekst onder elkaar */
-    justify-content: center; /* Centreer de tekst verticaal */
-    gap: 0.5em; /* Voeg ruimte toe tussen de `h2` en `p` */
-    color: white;
-  }
-  
-  .imgContent h2{
-    color:white;
-    font-size:1.5em;
-  
-    font-family: 'Open Sans', sans-serif;
-  
-  }
-  
-  .imgContent p{
-    color:white;
-    font-size:1em;
-  
-    font-family: 'Open Sans', sans-serif;
-  
-  }
+#sectionPin {
+  height: 500vh;
+  overflow: visible;
+  view-timeline-name: --section-pin-tl;
+  view-timeline-axis: block;
+  background-image: url("/images/1steoosterparkstraat.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  max-width: 100vw;
+}
 
-  .verhaal-nav {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-  }
-  
-  .verhaal-nav .cta-button {
-    background: var(--main-blauw);
-    color: white;
-    padding: 0.75rem 1.5rem;
-    border-radius: 8px;
-    font-weight: 600;
-    text-align: center;
-    flex: 1 1 30%;
-    min-width: 150px;
-    text-decoration: none;
-  }
-  
-  .verhaal-nav .cta-button:hover {
-    background-color: var(--secondary-blauw);
-  }
-  
+.pin-wrap-sticky {
+  position: sticky;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+}
 
-.terug{
+.pin-wrap {
+  height: 100vh;
+  width: 250vmax;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  justify-content: flex-start;
+  will-change: transform;
+  animation: linear move forwards;
+  animation-timeline: --section-pin-tl;
+  animation-range: contain 0% contain 100%;
+}
+
+/* =============== Introtekst =============== */
+.introtekst {
+  background: rgba(255, 255, 255, 0.8);
+  color: var(--color-text);
+  padding: 3rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  font-size: 1rem;
+  line-height: 1.6;
+  text-transform: uppercase;
+  max-width: 80vw;
+  display: flex;
+  flex-direction: column ;
+  align-items: center;
+}
+
+.introtekst h2 {
+  color: var(--color-secondary);
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
+
+.introtekst h3 {
+  color: var(--color-secondary);
+}
+
+/* =============== Verhaalbeelden =============== */
+.img {
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  width: 20em;
+  max-width: 90vw;
+  color: var(--color-text);
+}
+
+.img img {
+  border-radius: 0.75rem;
+  max-width: 200px;
+  height: auto;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.imgContent {
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.imgContent h2 {
+  color: var(--color-secondary-dark);
+  font-weight: 600;
+  font-size: 1.5em;
+  font-family: 'Open Sans', sans-serif;
+  margin-bottom: 0.5rem;
+}
+
+.imgContent p {
+  color: var(--color-text);
+  font-size: 1em;
+  line-height: 1.7;
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* =============== Navigatie =============== */
+.verhaal-nav {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.verhaal-nav .cta-button {
+  background: var(--main-blauw);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-align: center;
+  flex: 1 1 30%;
+  min-width: 150px;
+  text-decoration: none;
+}
+
+.verhaal-nav .cta-button:hover {
   background-color: var(--secondary-blauw);
+}
+
+.terug {
+  background-color: var(--color-link);
   color: white;
   padding: 1em;
-  border-radius: .5em;
+  border-radius: 0.5em;
 }
-  
- 
